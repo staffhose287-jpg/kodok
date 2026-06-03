@@ -1,0 +1,241 @@
+ * { box-sizing: border-box; cursor: crosshair; }
+    body {
+      margin: 0; padding: 0; background: var(--bg);
+      font-family: 'Source Code Pro', monospace; color: #fff;
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      overflow-x: hidden;
+    }
+
+    #particles { position: fixed; inset: 0; z-index: -2; opacity: 0.6; }
+
+    .outer-frame {
+      position: relative; padding: 3px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 20px; box-shadow: 0 0 40px rgba(255, 0, 60, 0.3);
+      transition: all 0.5s ease;
+      margin: 20px;
+    }
+
+    .container {
+      position: relative; width: 92vw; max-width: 1100px; padding: 50px 25px;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                  url('https://media1.tenor.com/m/bkfuKxm5b28AAAAd/sasuke-uchiha.gif');
+      background-size: cover; background-position: center;
+      border-radius: 18px; text-align: center; z-index: 10;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .hacker-title-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 40px; height: 70px; }
+    .hacker-title-container span {
+      font-family: 'Orbitron', sans-serif; font-size: clamp(2rem, 5vw, 4.5rem);
+      font-weight: 900; letter-spacing: 5px; color: #fff;
+      text-shadow: 0 0 20px var(--primary); animation: horrorFlicker 4s infinite;
+    }
+
+    @keyframes horrorFlicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; filter: brightness(1.2); }
+      20%, 24%, 55% { opacity: 0; filter: brightness(0); }
+    }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 18px; }
+
+    .card {
+      text-decoration: none; padding: 1px; border-radius: 12px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .inner-card {
+      background: rgba(0, 0, 0, 0.8); 
+      padding: 25px 10px;
+      border-radius: 11px; height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      display: flex; justify-content: center; align-items: center;
+    }
+
+    .card:hover { transform: translateY(-8px) scale(1.03); filter: brightness(1.2); }
+    .card span { font-weight: 900; font-size: 13px; letter-spacing: 1px; font-family: 'Orbitron'; text-transform: uppercase; }
+
+    /* --- COLORS SYNC --- */
+    .glow-bni { box-shadow: 0 0 25px rgba(255, 95, 0, 0.6) !important; }
+    .t-bni { color: #ff5f00 !important; text-shadow: 0 0 10px #ff5f00; }
+    .glow-bca { box-shadow: 0 0 25px rgba(0, 114, 188, 0.6) !important; }
+    .t-bca { color: #0072bc !important; text-shadow: 0 0 10px #0072bc; }
+    .glow-wonder { box-shadow: 0 0 30px rgba(212, 225, 87, 0.7) !important; }
+    .t-wonder { color: #d4e157 !important; text-shadow: 0 0 15px #d4e157; }
+    .glow-mandiri { box-shadow: 0 0 25px rgba(251, 190, 22, 0.5) !important; }
+    .t-mandiri { background: linear-gradient(to right, #003d79, #fbbe16); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .glow-red { box-shadow: 0 0 20px rgba(255, 0, 60, 0.5); }
+    .t-red { color: #ff003c; text-shadow: 0 0 10px #ff003c; }
+    .glow-gold { box-shadow: 0 0 25px rgba(255, 215, 0, 0.6); }
+    .t-gold { color: #ffd700; text-shadow: 0 0 10px #ffd700; }
+    .glow-blue { box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+    .t-blue { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; }
+    .glow-purple { box-shadow: 0 0 20px rgba(255, 0, 255, 0.4); }
+    .t-purple { color: #ff00ff; text-shadow: 0 0 10px #ff00ff; }
+    .glow-green { box-shadow: 0 0 20px rgba(57, 255, 20, 0.4); }
+    .t-green { color: #39ff14; text-shadow: 0 0 10px #39ff14; }
+     .glow-blue { box-shadow: 0 0 20px rgba(0, 240, 255, 0.4); }
+    .t-blue { color: #00f0ff; text-shadow: 0 0 10px #00f0ff; }
+    .overlay { position: fixed; inset: 0; background: #000; display: flex; align-items: center; justify-content: center; z-index: 9999; }
+    .login-box { background: #050505; padding: 40px; border-radius: 20px; border: 2px solid var(--primary); text-align: center; width: 350px; }
+    input { width: 100%; padding: 12px; margin-top: 10px; background: #000; border: 1px solid #333; color: #fff; text-align: center; font-weight: 900; }
+    .btn-auth { width: 100%; padding: 15px; background: var(--primary); border: none; color: #fff; font-weight: 900; margin-top: 20px; cursor: pointer; font-family: 'Orbitron'; }
+    .btn-logout { position: absolute; top: 20px; right: 20px; background: var(--primary); color: #fff; border: none; padding: 8px 15px; border-radius: 8px; cursor: cursor: pointer; font-size: 10px; font-weight: 900; font-family: 'Orbitron'; z-index: 100; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="overlay" id="overlay">
+  <div class="login-box">
+    <h2 style="font-family: Orbitron; font-size: 14px; color: var(--primary); letter-spacing: 2px;">SYSTEM ACCESS</h2>
+    <input type="text" id="uid" placeholder="ID">
+    <input type="password" id="pass" placeholder="PASSWORD">
+    <button class="btn-auth" onclick="auth()">DECRYPT</button>
+  </div>
+</div>
+
+<div class="outer-frame">
+  <div class="container" id="main">
+    <button class="btn-logout" onclick="exit()">LOGOUT</button>
+    <div class="hacker-title-container" id="rain-title"></div>
+    
+    <div class="grid">
+      <a href="struk-bni.html" class="card glow-bni" onmouseenter="changeTheme(this, '#ff5f00')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-bni">STRUK BNI</span></div>
+      </a>
+      <a href="struk-bca.html" class="card glow-bca" onmouseenter="changeTheme(this, '#0072bc')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-bca">STRUK BCA</span></div>
+      </a>
+      <a href="Struk-BNI-Wonder.html" class="card glow-wonder" onmouseenter="changeTheme(this, '#d4e157')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-wonder">STRUK BNI WONDER</span></div>
+      </a>
+      <a href="struk-mandiri.html" class="card glow-mandiri" onmouseenter="changeTheme(this, '#fbbe16')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-mandiri">STRUK MANDIRI</span></div>
+      </a>
+      <a href="sc-mahjong.html" class="card glow-red" onmouseenter="changeTheme(this, '#ff003c')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-red">SCATTER MAHJONG</span></div>
+      </a>
+      <a href="kemenangan.html" class="card glow-gold" onmouseenter="changeTheme(this, '#ffd700')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-gold">KEMENANGAN SLOT</span></div>
+      </a>
+      <a href="catatan-Log.html" class="card glow-gold" onmouseenter="changeTheme(this, '#ffd700')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-gold">CEK LOCK</span></div>
+      </a>
+      <a href="validasi.html" class="card glow-blue" onmouseenter="changeTheme(this, '#00f0ff')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-blue">VALIDASI</span></div>
+      </a>
+      <a href="scanner-typo.html" class="card glow-purple" onmouseenter="changeTheme(this, '#ff00ff')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-purple">SCAN & PIN DANA</span></div>
+      </a>
+      <a href="kalkulator-pga.html" class="card glow-green" onmouseenter="changeTheme(this, '#39ff14')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-green">KALKULATOR PGA</span></div>
+      </a>
+       <a href="kpi-form.html" class="card glow-blue" onmouseenter="changeTheme(this, '#00f0ff')" onmouseleave="resetTheme()">
+        <div class="inner-card"><span class="t-blue">REKAP KPI DP/WD</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  const canvas = document.getElementById('particles');
+  const ctx = canvas.getContext('2d');
+  let matrixColor = '#ff003c';
+  const fontSize = 16;
+  let drops = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const columns = Math.floor(canvas.width / fontSize);
+    drops = new Array(columns).fill(1);
+  }
+
+  window.onresize = resize;
+  window.onload = () => {
+    resize();
+    if (sessionStorage.getItem('logged') === 'true') {
+      document.getElementById('overlay').classList.add('hidden');
+      dropTitle();
+    }
+  };
+
+  function changeTheme(el, color) {
+    matrixColor = color;
+    const frame = document.querySelector('.outer-frame');
+    frame.style.boxShadow = `0 0 60px ${color}`;
+    frame.style.background = color;
+  }
+
+  function resetTheme() {
+    matrixColor = '#ff003c';
+    const frame = document.querySelector('.outer-frame');
+    frame.style.boxShadow = `0 0 40px rgba(255, 0, 60, 0.3)`;
+    frame.style.background = `linear-gradient(135deg, var(--primary), var(--secondary))`;
+  }
+
+  function dropTitle() {
+    const container = document.getElementById("rain-title");
+    container.innerHTML = "";
+    "ACIL SHORTCUT".split("").forEach((char, i) => {
+      const span = document.createElement("span");
+      span.innerText = char === " " ? "\u00A0" : char;
+      span.style.animationDelay = `${(i * 0.1).toFixed(2)}s`;
+      container.appendChild(span);
+    });
+  }
+
+  function auth() {
+    const u = document.getElementById('uid').value;
+    const p = document.getElementById('pass').value;
+
+    const formData = new FormData();
+    formData.append('uid', u);
+    formData.append('pass', p);
+
+    fetch('login.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      if (data.trim() === "SUCCESS") {
+        document.getElementById('overlay').classList.add('hidden');
+        sessionStorage.setItem('logged', 'true');
+        dropTitle();
+      } else {
+        alert("KAMU TIDAK BISA LOGIN LAGI YA HAHA!!");
+      }
+    })
+    .catch(err => {
+      console.error("Error:", err);
+      alert("Gagal terhubung ke server.");
+    });
+  }
+
+  function exit() {
+    sessionStorage.clear();
+    location.reload();
+  }
+
+  function draw() {
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.15)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.fillStyle = matrixColor;
+    ctx.font = `900 ${fontSize}px monospace`;
+    drops.forEach((y, i) => {
+      const text = Math.floor(Math.random() * 2);
+      ctx.fillText(text, i * fontSize, y * fontSize);
+      if (y * fontSize > canvas.height && Math.random() > 0.98) drops[i] = 0;
+      drops[i]++;
+    });
+  }
+
+  setInterval(draw, 35);
+</script>
+</body>
+</html>
